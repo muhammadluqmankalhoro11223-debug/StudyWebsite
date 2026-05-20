@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<title>Tailor Management System</title>
+</head>
+<body>
+<!-- The main display card -->
+<div class="card">
+<!-- Profile Image (Placeholder link - change thi) -->
+<img src="mansoor.jpg" alt="mansoor image" width="300" height"350">
+<h1>Muhammad luqman</h1>
+<p class="tagline">Creative Designer & Web Enthusiast</p>
+
+<h3 class="section-title">My Interests</h3>
+<ul>
+<li>Web Development (HTML & CSS)</li>
+<li>Sleek Automotive & Graphic Design</li>
+<li>Creating Personalized Digital Layouts</li>
+</ul>
+
+<div class="container">
+<p class="subtitle">Customer | Measurement | Billing</p>
+<h1>AL_HUSSAINI_TAILOR SHOP</h1>
+<div class="product-card">
+<img src="luqman.jpg" alt="luqman image"width="200px">
+<h3>desion Dress</h3>
+<p>$20.40</p>
+<button>add to card</button>
+</div>
+<Hr>
+<div class="tabs">
+<div class="tab active" onclick="switchTab('add')">New Customer</div>
+<div class="tab" onclick="switchTab('bill')">Generate Bill</div>
+</div>
+
+<!-- Add Customer -->
+<div class="tab-content active" id="addTab">
+<div class="grid-2">
+<div class="form-group">
+<label>Customer Name</label>
+<input type="text" id="name" placeholder="Enter the Name">
+</div>
+<div class="form-group">
+<label>Phone</label>
+<input type="tel" id="phone" placeholder="031******">
+<label for="email">email</label>
+<input type="email id="email name="email">
+
+<label for="Adress">adress</label>
+<input type="Adress id="Adress name="Adress">
+</div>
+
+<h3 style="margin:15px 0 10px">Measurements (inches)</h3>
+<div class="grid-2">
+<div class="form-group"><label>Shirt Length</label><input type="number" id="length"></div>
+<div class="form-group"><label>Chest</label><input type="number" id="chest"></div>
+<div class="form-group"><label>Shoulder</label><input type="number" id="shoulder"></div>
+<div class="form-group"><label>Sleeve</label><input type="number" id="sleeve"></div>
+<div class="form-group"><label>Trouser Length</label><input type="number" id="trouser"></div>
+<div class="form-group"><label>Waist</label><input type="number" id="waist"></div>
+</div>
+
+<div class="form-group">
+<label>Notes / Order Detail</label>
+<textarea id="notes" rows="3" placeholder="Kurta - Blue, collar design..."></textarea>
+</div>
+
+<button class="btn btn-primary" onclick="addCustomer()">Save Customer</button>
+</div>
+
+<!-- Bill -->
+<div class="tab-content" id="billTab">
+<div class="form-group">
+<label>Select Customer</label>
+<select id="billCustomer" onchange="showBillForm()">
+<option value="">-- Choose Customer --</option>
+</select>
+</div>
+<div id="billForm">
+<div class="grid-2">
+<div class="form-group">
+<label>Item</label>
+<select id="item">
+<option>Shirt</option>
+<option>Trouser</option>
+<option>Suit</option>
+<option>Kurta</option>
+<option>Other</option>
+</select>
+</div>
+<div class="form-group">
+<label>price</label>
+<input type="number" id="price" placeholder="0000">
+</div>
+
+<div class="form-group">
+<label>Date</label>
+<input type="Date" id="delivery">
+</div>
+
+<button class="btn btn-primary" onclick="generateBill()">Generate Bill</button>
+<div id="billOutput"></div>
+</div>
+</div>
+
+<div class="bill">
+<div class="bill-header">
+<h2>Al_Hussaini_Tailor</h2>
+<p>Bill Receipt</p>
+<p> Adress Near Dargah Aliya Hussian Abad Qambar Shahdadkot </p>
+</div>
+<div class="bill-row"><span>Customer:</span><span>${cust.name}</span></div>
+<div class="bill-row"><span>Phone:</span><span>${cust.phone}</span></div>
+<div class="bill-row"><span>Item:</span><span>${item}</span></div>
+<div class="bill-row"><span>Delivery:</span><span>${delivery||'Not Set'}</span></div>
+<div class="bill-row bill-total"><span>Total:</span><span>₹${price.toFixed(2)}</span></div>
+<button class="btn btn-primary" style="margin-top:15px" onclick="window.print()">Print Bill</button>
+</div>
+<p> Adress Near Dargah Aliya Hussian Abad Qambar Shahdadkot </p>
+</div>
+
+</body>
+</html>
